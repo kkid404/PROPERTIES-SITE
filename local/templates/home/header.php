@@ -50,15 +50,44 @@ use Bitrix\Main\Page\Asset;
           <div class="col-6 col-md-6">
             <p class="mb-0">
               <a href="#" class="mr-3"><span class="text-black fl-bigmug-line-phone351"></span> <span
-                  class="d-none d-md-inline-block ml-2">+2 102 3923 3922</span></a>
+                  class="d-none d-md-inline-block ml-2">
+                  <?$APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    "",
+                    Array(
+                      "AREA_FILE_SHOW" => "file",
+                      "AREA_FILE_SUFFIX" => "inc",
+                      "EDIT_TEMPLATE" => "",
+                      "PATH" => "/include/phone.php"
+                    )
+                  );?>           
+                </span></a>
               <a href="#"><span class="text-black fl-bigmug-line-email64"></span> <span
-                  class="d-none d-md-inline-block ml-2">info@domain.com</span></a>
+                  class="d-none d-md-inline-block ml-2">
+                <?$APPLICATION->IncludeComponent(
+                  "bitrix:main.include",
+                  "",
+                  Array(
+                    "AREA_FILE_SHOW" => "file",
+                    "AREA_FILE_SUFFIX" => "inc",
+                    "EDIT_TEMPLATE" => "",
+                    "PATH" => "/include/email.php"
+                  )
+                );?>   
+              </span></a>
             </p>
           </div>
           <div class="col-6 col-md-6 text-right">
-            <a href="#" class="mr-3"><span class="text-black icon-facebook"></span></a>
-            <a href="#" class="mr-3"><span class="text-black icon-twitter"></span></a>
-            <a href="#" class="mr-0"><span class="text-black icon-linkedin"></span></a>
+          <?$APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    "",
+                    Array(
+                      "AREA_FILE_SHOW" => "file",
+                      "AREA_FILE_SUFFIX" => "inc",
+                      "EDIT_TEMPLATE" => "",
+                      "PATH" => "/include/social_network.php"
+                    )
+                  );?> 
           </div>
         </div>
       </div>
@@ -68,7 +97,18 @@ use Bitrix\Main\Page\Asset;
       <div class="container py-1">
         <div class="row align-items-center">
           <div class="col-8 col-md-8 col-lg-4">
-            <h1 class=""><a href="/" class="h5 text-uppercase text-black"><strong>HomeSpace<span
+            <h1 class=""><a href="/" class="h5 text-uppercase text-black"><strong>          
+            <?$APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    "",
+                    Array(
+                      "AREA_FILE_SHOW" => "file",
+                      "AREA_FILE_SUFFIX" => "inc",
+                      "EDIT_TEMPLATE" => "",
+                      "PATH" => "/include/company_name.php"
+                    )
+                  );?> 
+                <span
                     class="text-danger">.</span></strong></a></h1>
           </div>
           <div class="col-4 col-md-4 col-lg-8">
@@ -78,6 +118,25 @@ use Bitrix\Main\Page\Asset;
                   class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 
               <ul class="site-menu js-clone-nav d-none d-lg-block">
+                <?$APPLICATION->IncludeComponent(
+	"bitrix:menu", 
+	".default", 
+	array(
+		"ALLOW_MULTI_SELECT" => "N",
+		"CHILD_MENU_TYPE" => "left",
+		"DELAY" => "N",
+		"MAX_LEVEL" => "1",
+		"MENU_CACHE_GET_VARS" => array(
+		),
+		"MENU_CACHE_TIME" => "3600",
+		"MENU_CACHE_TYPE" => "A",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"ROOT_MENU_TYPE" => "left",
+		"USE_EXT" => "N",
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
+);?>
                 <li class="active">
                   <a href="index.html">Home</a>
                 </li>
@@ -110,35 +169,4 @@ use Bitrix\Main\Page\Asset;
     </div>
   </div>
 
-  <div class="slide-one-item home-slider owl-carousel">
-
-    <div class="site-blocks-cover" style="background-image: url(<?=SITE_TEMPLATE_PATH?>/images/hero_bg_1.jpg);" data-aos="fade"
-      data-stellar-background-ratio="0.5">
-
-      <div class="text">
-        <h2>853 S Lucerne Blvd</h2>
-        <p class="location"><span class="property-icon icon-room"></span> Los Angeles, CA 90005</p>
-        <p class="mb-2"><strong>$2,250,500</strong></p>
-
-
-        <p class="mb-0"><a href="#" class="text-uppercase small letter-spacing-1 font-weight-bold">More Details</a></p>
-
-      </div>
-    </div>
-
-    <div class="site-blocks-cover" style="background-image: url(<?=SITE_TEMPLATE_PATH?>/images/hero_bg_3.jpg);" data-aos="fade"
-      data-stellar-background-ratio="0.5">
-
-      <div class="text">
-        <h2>625 S. Berendo St</h2>
-        <p class="location"><span class="property-icon icon-room"></span>607 Los Angeles, CA 90005</p>
-        <p class="mb-2"><strong>$2,250,500</strong></p>
-
-
-        <p class="mb-0"><a href="#" class="text-uppercase small letter-spacing-1 font-weight-bold">More Details</a></p>
-
-      </div>
-
-    </div>
-
-  </div>
+  
