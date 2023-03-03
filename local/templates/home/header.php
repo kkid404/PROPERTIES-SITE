@@ -130,7 +130,7 @@ use Bitrix\Main\Page\Asset;
       </div>
     </div>
   </div>
-  <? if($_SERVER["REQUEST_URI"] === "/"):?>
+  <? if($APPLICATION->GetCurPage(false) === '/'):?>
     <?$APPLICATION->IncludeComponent(
     "bitrix:news.list", 
     "slider", 
@@ -213,12 +213,12 @@ use Bitrix\Main\Page\Asset;
             <h1 class="mb-2"><?$APPLICATION->ShowTitle()?></h1>
             <?$APPLICATION->IncludeComponent(
 	"bitrix:breadcrumb", 
-	"breadcrump", 
+	"test2", 
 	array(
 		"PATH" => "",
 		"SITE_ID" => "s1",
 		"START_FROM" => "0",
-		"COMPONENT_TEMPLATE" => "breadcrump"
+		"COMPONENT_TEMPLATE" => "test2"
 	),
 	false
 );?>          
