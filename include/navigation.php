@@ -4,18 +4,18 @@
 </div>
 <div class="col-md-6 col-lg-6">
     <ul class="list-unstyled">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Buy</a></li>
-    <li><a href="#">Rent</a></li>
-    <li><a href="#">Properties</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Buy</a></li>
+        <li><a href="#">Rent</a></li>
+        <li><a href="#">Properties</a></li>
     </ul>
 </div>
 <div class="col-md-6 col-lg-6">
     <ul class="list-unstyled">
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Privacy Policy</a></li>
-    <li><a href="#">Contact Us</a></li>
-    <li><a href="#">Terms</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Terms</a></li>
     </ul>
 </div>
 </div>

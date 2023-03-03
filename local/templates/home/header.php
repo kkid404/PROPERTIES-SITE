@@ -111,62 +111,98 @@ use Bitrix\Main\Page\Asset;
                 <span
                     class="text-danger">.</span></strong></a></h1>
           </div>
-          <div class="col-4 col-md-4 col-lg-8">
-            <nav class="site-navigation text-right text-md-right" role="navigation">
-
-              <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#"
-                  class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-
-              <ul class="site-menu js-clone-nav d-none d-lg-block">
-                <?$APPLICATION->IncludeComponent(
-	"bitrix:menu", 
-	".default", 
-	array(
-		"ALLOW_MULTI_SELECT" => "N",
-		"CHILD_MENU_TYPE" => "left",
-		"DELAY" => "N",
-		"MAX_LEVEL" => "1",
-		"MENU_CACHE_GET_VARS" => array(
-		),
-		"MENU_CACHE_TIME" => "3600",
-		"MENU_CACHE_TYPE" => "A",
-		"MENU_CACHE_USE_GROUPS" => "Y",
-		"ROOT_MENU_TYPE" => "left",
-		"USE_EXT" => "N",
-		"COMPONENT_TEMPLATE" => ".default"
-	),
-	false
-);?>
-                <li class="active">
-                  <a href="index.html">Home</a>
-                </li>
-                <li class="has-children">
-                  <a href="properties.html">Properties</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Buy</a></li>
-                    <li><a href="#">Rent</a></li>
-                    <li><a href="#">Lease</a></li>
-                    <li class="has-children">
-                      <a href="#">Menu</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-
-
+          <?$APPLICATION->IncludeComponent("bitrix:menu", "top_milti", Array(
+            "COMPONENT_TEMPLATE" => "horizontal_multilevel",
+              "ROOT_MENU_TYPE" => "top",	// Тип меню для первого уровня
+              "MENU_CACHE_TYPE" => "N",	// Тип кеширования
+              "MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+              "MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+              "MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
+              "MAX_LEVEL" => "3",	// Уровень вложенности меню
+              "CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+              "USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+              "DELAY" => "N",	// Откладывать выполнение шаблона меню
+              "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+            ),
+            false
+          );?>
         </div>
       </div>
     </div>
   </div>
 
+  <?$APPLICATION->IncludeComponent(
+	"bitrix:news.list", 
+	"slider", 
+	array(
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"ADD_SECTIONS_CHAIN" => "Y",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"CHECK_DATES" => "Y",
+		"COMPONENT_TEMPLATE" => "slider",
+		"DETAIL_URL" => "",
+		"DISPLAY_BOTTOM_PAGER" => "Y",
+		"DISPLAY_DATE" => "Y",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"DISPLAY_TOP_PAGER" => "N",
+		"FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"FILTER_NAME" => "",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"IBLOCK_ID" => "5",
+		"IBLOCK_TYPE" => "posts",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+		"INCLUDE_SUBSECTIONS" => "Y",
+		"MESSAGE_404" => "",
+		"NEWS_COUNT" => "20",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_SHOW_ALL" => "N",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TITLE" => "Новости",
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"PROPERTY_CODE" => array(
+			0 => "COUNT_BATHROOMS",
+			1 => "COUNT_FLOORS",
+			2 => "GARAGE",
+			3 => "TOTAL_AREA",
+			4 => "PRIORITY_DEAL",
+			5 => "MORE_LINKS",
+			6 => "PRICE",
+			7 => "",
+		),
+		"SET_BROWSER_TITLE" => "Y",
+		"SET_LAST_MODIFIED" => "N",
+		"SET_META_DESCRIPTION" => "Y",
+		"SET_META_KEYWORDS" => "Y",
+		"SET_STATUS_404" => "N",
+		"SET_TITLE" => "Y",
+		"SHOW_404" => "N",
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER1" => "DESC",
+		"SORT_ORDER2" => "ASC",
+		"STRICT_SECTION_CHECK" => "N"
+	),
+	false
+);?>
+
   
+
+
