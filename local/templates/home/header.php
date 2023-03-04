@@ -48,33 +48,27 @@ use Bitrix\Main\Page\Asset;
       <div class="container">
         <div class="row align-items-center">
           <div class="col-6 col-md-6">
-            <p class="mb-0">
-              <a href="#" class="mr-3"><span class="text-black fl-bigmug-line-phone351"></span> <span
-                  class="d-none d-md-inline-block ml-2">
-                  <?$APPLICATION->IncludeComponent(
-                    "bitrix:main.include",
-                    "",
-                    Array(
-                      "AREA_FILE_SHOW" => "file",
-                      "AREA_FILE_SUFFIX" => "inc",
-                      "EDIT_TEMPLATE" => "",
-                      "PATH" => "/include/phone.php"
-                    )
-                  );?>           
-                </span></a>
-              <a href="#"><span class="text-black fl-bigmug-line-email64"></span> <span
-                  class="d-none d-md-inline-block ml-2">
-                <?$APPLICATION->IncludeComponent(
-                  "bitrix:main.include",
-                  "",
-                  Array(
-                    "AREA_FILE_SHOW" => "file",
-                    "AREA_FILE_SUFFIX" => "inc",
-                    "EDIT_TEMPLATE" => "",
-                    "PATH" => "/include/email.php"
-                  )
-                );?>   
-              </span></a>
+            <p class="mb-0">    
+              <?$APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
+                Array(
+                  "AREA_FILE_SHOW" => "file",
+                  "AREA_FILE_SUFFIX" => "inc",
+                  "EDIT_TEMPLATE" => "",
+                  "PATH" => "/include/phone.php"
+                )
+              );?>           
+              <?$APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
+                Array(
+                  "AREA_FILE_SHOW" => "file",
+                  "AREA_FILE_SUFFIX" => "inc",
+                  "EDIT_TEMPLATE" => "",
+                  "PATH" => "/include/email.php"
+                )
+              );?>   
             </p>
           </div>
           <div class="col-6 col-md-6 text-right">
@@ -131,7 +125,9 @@ use Bitrix\Main\Page\Asset;
     </div>
   </div>
   <? if($APPLICATION->GetCurPage(false) === '/'):?>
-    <?$APPLICATION->IncludeComponent(
+    <?
+    $arrFilter=array("PROPERTY"=>array("PRIORITY_DEAL"=>5));
+    $APPLICATION->IncludeComponent(
     "bitrix:news.list", 
     "slider", 
     array(
@@ -159,7 +155,7 @@ use Bitrix\Main\Page\Asset;
         0 => "",
         1 => "",
       ),
-      "FILTER_NAME" => "",
+      "FILTER_NAME" => "arrFilter",
       "HIDE_LINK_WHEN_NO_DETAIL" => "N",
       "IBLOCK_ID" => "5",
       "IBLOCK_TYPE" => "posts",
