@@ -13,26 +13,29 @@ if(empty($arResult))
 
 $strReturn = '';
 
+//we can't use $APPLICATION->SetAdditionalCSS() here because we are inside the buffered function GetNavChain()
+$css = $APPLICATION->GetCSSArray();
+
 $strReturn .= '<div>';
 
 $itemSize = count($arResult);
+
 for($index = 0; $index < $itemSize; $index++)
 {
 	$title = htmlspecialcharsex($arResult[$index]["TITLE"]);
+	$arrow = ($index > 0? '<span class="mx-2 text-white">&bullet;</span> ' : '');
 
 	if($arResult[$index]["LINK"] <> "" && $index != $itemSize-1)
 	{
-		$strReturn .= '
-				<a href="'.$arResult[$index]["LINK"].'">
-					'.$title.'
+		$strReturn .=  $arrow.'
+				<a href="'.$arResult[$index]["LINK"].'" title="'.$title.'" itemprop="item">
+				'.$title.'
 				</a>
-				<span class="mx-2 text-white">&bullet;</span>
 			';
 	}
 	else
 	{
-		$strReturn .= '
-				'.$arrow.'
+		$strReturn .= $arrow.'
 				<strong class="text-white">'.$title.'</strong>
 			';
 	}

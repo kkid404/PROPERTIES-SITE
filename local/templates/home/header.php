@@ -209,12 +209,12 @@ use Bitrix\Main\Page\Asset;
             <h1 class="mb-2"><?$APPLICATION->ShowTitle()?></h1>
             <?$APPLICATION->IncludeComponent(
 	"bitrix:breadcrumb", 
-	"test2", 
+	"breadcrump", 
 	array(
 		"PATH" => "",
 		"SITE_ID" => "s1",
 		"START_FROM" => "0",
-		"COMPONENT_TEMPLATE" => "test2"
+		"COMPONENT_TEMPLATE" => "breadcrump"
 	),
 	false
 );?>          

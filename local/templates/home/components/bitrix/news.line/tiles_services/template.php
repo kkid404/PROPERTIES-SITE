@@ -29,10 +29,10 @@ $this->setFrameMode(true);
 			<a href="<?=$arItem["PROPERTY_EXTERNAL_LINK_VALUE"]?>" 
 			class="service text-center border rounded"
 			target="_blank"> 
-				<img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="">
+				<span class="icon flaticon-house"></span>
 				<h2 class="service-heading"><?=$arItem["NAME"]?></h2>
 				<p>
-					<span class="read-more">Learn More</span>
+					<span class="read-more"><?=GetMessage("LEARN_MORE")?></span>
 					
 				</p>
 			</a>
