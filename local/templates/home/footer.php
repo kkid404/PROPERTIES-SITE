@@ -95,6 +95,7 @@ use Bitrix\Main\Page\Asset;
   <?Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/bootstrap-datepicker.min.js");?>
   <?Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/aos.js");?>
   <?Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.js");?>
+    
 
 </body>
 
