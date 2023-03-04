@@ -4,7 +4,7 @@ IncludeTemplateLangFile(__FILE__);
 use Bitrix\Main\Page\Asset;
 ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="<?=LANGUAGE_ID?>">
 
 <head>
   <title><?$APPLICATION->ShowTitle()?></title>
