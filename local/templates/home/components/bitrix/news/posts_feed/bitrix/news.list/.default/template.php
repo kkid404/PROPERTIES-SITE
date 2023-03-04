@@ -45,7 +45,7 @@ $this->setFrameMode(true);
 			<div class="inner d-flex">
 			<div class="col">
 				<span><?=GetMessage("AREA")?></span>
-				<strong><?=$arItem["DISPLAY_PROPERTIES"]["TOTAL_AREA"]["VALUE"]?><sup>2</sup></strong>
+				<strong><?=$arItem["DISPLAY_PROPERTIES"]["TOTAL_AREA"]["VALUE"]?><?=GetMessage("METERS")?><sup>2</sup></strong>
 			</div>
 			<div class="col">
 				<span><?=GetMessage("BED")?></span>

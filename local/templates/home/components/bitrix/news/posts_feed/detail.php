@@ -23,7 +23,7 @@ $this->setFrameMode(true);
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
 		"FIELD_CODE" => $arParams["DETAIL_FIELD_CODE"],
-		"PROPERTY_CODE" => $arParams["DETAIL_PROPERTY_CODE"],
+		"PROPERTY_CODE" => $arParams["LIST_PROPERTY_CODE"],
 		"DETAIL_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["detail"],
 		"SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
 		"META_KEYWORDS" => $arParams["META_KEYWORDS"],
@@ -68,7 +68,6 @@ $this->setFrameMode(true);
 	),
 	$component
 );?>
-<p><a href="<?=$arResult["FOLDER"].$arResult["URL_TEMPLATES"]["news"]?>"><?=GetMessage("T_NEWS_DETAIL_BACK")?></a></p>
 <?if($arParams["USE_RATING"]=="Y" && $ElementID):?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:iblock.vote",

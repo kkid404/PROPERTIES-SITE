@@ -5,4 +5,5 @@ $MESS["AREA"] = "Площадь:";
 $MESS["BATHROOM"] = "Ванн:";
 $MESS["GARAGE"] = "Гаражей:";
 $MESS["BED"] = "Спален:";
+$MESS["METERS"] = "м";
 ?>

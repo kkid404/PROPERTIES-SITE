@@ -32,7 +32,7 @@ $this->setFrameMode(true);
 				</figure>
 				<div class="prop-text">
 					<div class="inner">
-						<span class="price rounded">$<?=$arItem["PROPERTY_PRICE_VALUE"]?></span>
+						<span class="price rounded">$<?=$arResult["PROPERTY_PRICE_VALUE"]?></span>
 						<h3 class="title"><?=$arItem["NAME"]?></h3>
 							<p class="location">
 							<?=$arItem["PREVIEW_TEXT"]?>

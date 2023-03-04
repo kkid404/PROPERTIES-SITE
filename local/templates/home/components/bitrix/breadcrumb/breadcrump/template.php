@@ -16,7 +16,10 @@ $strReturn = '';
 //we can't use $APPLICATION->SetAdditionalCSS() here because we are inside the buffered function GetNavChain()
 $css = $APPLICATION->GetCSSArray();
 
-$strReturn .= '<div>';
+
+$strReturn .= '
+	<div>
+	';
 
 $itemSize = count($arResult);
 
