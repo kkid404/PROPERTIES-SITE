@@ -1,9 +1,12 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Мои объявления");
-?><?$APPLICATION->IncludeComponent(
+?><?
+$userFilter = array("CREATED_BY"=>$GLOBALS['USER']->GetID());
+
+$APPLICATION->IncludeComponent(
 	"bitrix:news", 
-	".default", 
+	"posts_feed", 
 	array(
 		"ADD_ELEMENT_CHAIN" => "N",
 		"ADD_SECTIONS_CHAIN" => "Y",
@@ -13,17 +16,17 @@ $APPLICATION->SetTitle("Мои объявления");
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",
 		"BROWSER_TITLE" => "-",
-		"CACHE_FILTER" => "Y",
+		"CACHE_FILTER" => "N",
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
-		"COMPONENT_TEMPLATE" => ".default",
+		"COMPONENT_TEMPLATE" => "posts_feed",
 		"DETAIL_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
 		"DETAIL_FIELD_CODE" => array(
-			0 => "",
+			0 => "CREATED_BY",
 			1 => "",
 		),
 		"DETAIL_PAGER_SHOW_ALL" => "Y",
@@ -43,12 +46,20 @@ $APPLICATION->SetTitle("Мои объявления");
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"LIST_FIELD_CODE" => array(
-			0 => "",
+			0 => "CREATED_BY",
 			1 => "",
 		),
 		"LIST_PROPERTY_CODE" => array(
-			0 => "",
-			1 => "",
+			0 => "COUNT_BATHROOMS",
+			1 => "COUNT_FLOORS",
+			2 => "GARAGE",
+			3 => "TOTAL_AREA",
+			4 => "PRIORITY_DEAL",
+			5 => "MORE_LINKS",
+			6 => "PRICE",
+			7 => "GALLERY_IMG",
+			8 => "MORE_INFO",
+			9 => "",
 		),
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
@@ -60,7 +71,7 @@ $APPLICATION->SetTitle("Мои объявления");
 		"PAGER_SHOW_ALL" => "N",
 		"PAGER_SHOW_ALWAYS" => "N",
 		"PAGER_TEMPLATE" => ".default",
-		"PAGER_TITLE" => "Новости",
+		"PAGER_TITLE" => "Мои объявления",
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"SEF_FOLDER" => "/lichnyy-kabinet-prodavtsa/moi-obyavleniya/",
 		"SEF_MODE" => "Y",
@@ -74,12 +85,25 @@ $APPLICATION->SetTitle("Мои объявления");
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N",
 		"USE_CATEGORIES" => "N",
-		"USE_FILTER" => "N",
 		"USE_PERMISSIONS" => "N",
 		"USE_RATING" => "N",
 		"USE_REVIEW" => "N",
 		"USE_RSS" => "N",
 		"USE_SEARCH" => "N",
+		"DISPLAY_DATE" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"USE_SHARE" => "N",
+		"FILTER_FIELD_CODE" => array(
+			0 => "CREATED_BY",
+			1 => "",
+		),
+		"FILTER_NAME" => "userFilter",
+		"FILTER_PROPERTY_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"USE_FILTER" => "Y",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
 			"section" => "",
