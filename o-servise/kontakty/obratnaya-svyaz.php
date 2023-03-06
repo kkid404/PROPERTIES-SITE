@@ -6,9 +6,19 @@ $APPLICATION->SetTitle("Обратная связь");
 	<div class="container">
 		<div class="row">
 <?$APPLICATION->IncludeComponent(
-	"bitrix:main.feedback",
-	"feedback",
-	Array()
+	"bitrix:main.feedback", 
+	"feedback", 
+	array(
+		"COMPONENT_TEMPLATE" => "feedback",
+		"USE_CAPTCHA" => "Y",
+		"OK_TEXT" => "Спасибо, ваше сообщение принято.",
+		"EMAIL_TO" => "kkidywork@gmail.com",
+		"REQUIRED_FIELDS" => array(
+		),
+		"EVENT_MESSAGE_ID" => array(
+		)
+	),
+	false
 );?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
