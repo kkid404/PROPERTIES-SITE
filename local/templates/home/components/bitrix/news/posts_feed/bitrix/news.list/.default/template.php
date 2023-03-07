@@ -69,3 +69,4 @@ $this->setFrameMode(true);
 <?endforeach;?>
 </div>
 </div>
+</div>
