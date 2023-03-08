@@ -89,3 +89,4 @@ $this->setFrameMode(true);
 	),
 	$component
 );?>
+

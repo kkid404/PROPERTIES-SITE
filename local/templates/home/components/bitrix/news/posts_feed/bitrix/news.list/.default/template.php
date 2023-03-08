@@ -70,3 +70,38 @@ $this->setFrameMode(true);
 </div>
 </div>
 </div>
+<?
+$filter = array("=IBLOCK_ID"=>6);
+
+$nav = new \Bitrix\Main\UI\PageNavigation("nav-more-news");
+$nav->allowAllRecords(true)
+   ->setPageSize(5)
+   ->initFromUri();
+
+$newsList = \Bitrix\Iblock\ElementTable::getList(
+   array(
+      "filter" => $filter,
+      "count_total" => true,
+      "offset" => $nav->getOffset(),
+      "limit" => $nav->getLimit(),
+   )
+);
+
+$nav->setRecordCount($newsList->getCount());
+
+while($news = $newsList->fetch())
+{
+}
+?>
+
+<?
+$APPLICATION->IncludeComponent(
+   "bitrix:main.pagenavigation",
+   "",
+   array(
+      "NAV_OBJECT" => $nav,
+      "SEF_MODE" => "Y",
+   ),
+   false
+);
+?>
