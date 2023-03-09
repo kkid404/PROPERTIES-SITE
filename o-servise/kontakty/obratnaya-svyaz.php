@@ -1,6 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Обратная связь");
+$APPLICATION->AddChainItem($APPLICATION->GetTitle())
+
 ?>
 <div class="site-section">
 	<div class="container">

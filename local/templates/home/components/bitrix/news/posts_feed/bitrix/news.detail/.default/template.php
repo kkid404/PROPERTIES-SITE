@@ -11,7 +11,12 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+//var_dump($arResult);
+$count_img = count($arResult["DISPLAY_PROPERTIES"]["GALLERY_IMG"]["DISPLAY_VALUE"]);
+$count_more_info = count($arResult["DISPLAY_PROPERTIES"]["MORE_INFO"]["DISPLAY_VALUE"]);
+$count_more_links = count($arResult["DISPLAY_PROPERTIES"]["MORE_LINKS"]["DISPLAY_VALUE"]);
 ?>
+
 <div class="site-blocks-cover overlay" style="background-image: url(<?=$arResult["DETAIL_PICTURE"]["SRC"]?>);" data-aos="fade" data-stellar-background-ratio="0.5">
 	<div class="container">
 	<div class="row align-items-center justify-content-center text-center">
@@ -29,7 +34,7 @@ $this->setFrameMode(true);
           <div class="col-lg-8" style="margin-top: -150px;">
             <div class="mb-5">
               <div class="slide-one-item home-slider owl-carousel">
-				<?if($arResult["DISPLAY_PROPERTIES"]["GALLERY_IMG"]["FILE_VALUE"]["SRC"] === null):?>
+				<?if($count_img > 1):?>
 					<?foreach($arResult["DISPLAY_PROPERTIES"]["GALLERY_IMG"]["FILE_VALUE"] as $key => $photo):?>
 						<div><img src="<?=$photo['SRC']?>" alt="<?=$arResult["NAME"]?>" class="img-fluid"></div>
 					<?endforeach?>
@@ -86,7 +91,7 @@ $this->setFrameMode(true);
                 <div class="col-12">
                   <h2 class="h4 text-black mb-3"><?=GetMessage("PROPERTY_GALLERY")?></h2>
                 </div>
-				<?if($arResult["DISPLAY_PROPERTIES"]["GALLERY_IMG"]["FILE_VALUE"]["SRC"] === null):?>
+				<?if($count_img > 1):?>
 					<?foreach($arResult["DISPLAY_PROPERTIES"]["GALLERY_IMG"]["FILE_VALUE"] as $key => $photo):?>
 						<div class="col-sm-6 col-md-4 col-lg-3 mb-4"> 
 							<a href="<?=$photo['SRC']?>" class="image-popup gal-item">
@@ -134,13 +139,13 @@ $this->setFrameMode(true);
             </div>
 
           </div>
-		    <div class="container">
-            	<div>
-                  <h2 class="h4 text-black mb-3"><?=GetMessage("ADDITIONAL_MATERIALS")?></h2>
-                </div>
 				
-				<?if(isset($arResult["DISPLAY_PROPERTIES"]["MORE_INFO"])):?>
-					<?if($arResult["DISPLAY_PROPERTIES"]["MORE_INFO"]["FILE_VALUE"]["SRC"] == null):?>
+				<?if(isset($arResult["DISPLAY_PROPERTIES"]["MORE_INFO"]["VALUE"])):?>
+          <div class="container">
+            <div>
+              <h2 class="h4 text-black mb-3"><?=GetMessage("ADDITIONAL_MATERIALS")?></h2>
+            </div>
+					<?if($count_more_info > 1):?>
 						<?foreach($arResult["DISPLAY_PROPERTIES"]["MORE_INFO"]["FILE_VALUE"] as $key => $file):?>
 							<div> 
 								<a href="<?=$file['SRC']?>" class="gal-item">
@@ -155,16 +160,18 @@ $this->setFrameMode(true);
 									<?=$arResult["DISPLAY_PROPERTIES"]["MORE_INFO"]["FILE_VALUE"]['FILE_NAME']?>
 								</a>
 							</div>
-					<?endif?>
+					  <?endif?>
+          </div>
 				<?endif?>
-			</div>
-		    <div class="container">
-            	<div>
-                  <h2 class="h4 text-black mb-3"><?=GetMessage("MORE_LINKS")?></h2>
-                </div>
+			
+
 				
-				<?if(isset($arResult["DISPLAY_PROPERTIES"]["MORE_LINKS"])):?>
-					<?if(count($arResult["DISPLAY_PROPERTIES"]["MORE_LINKS"]["VALUE"]) > 1):?>
+				<?if(isset($arResult["DISPLAY_PROPERTIES"]["MORE_LINKS"]["VALUE"])):?>
+          <div class="container">
+            <div>
+              <h2 class="h4 text-black mb-3"><?=GetMessage("MORE_LINKS")?></h2>
+            </div>
+					<?if($count_more_links > 1):?>
 						<?foreach($arResult["DISPLAY_PROPERTIES"]["MORE_LINKS"]["VALUE"] as $key => $link):?>
 							<div> 
 								<a href="<?=$link?>" class="gal-item">
@@ -179,8 +186,9 @@ $this->setFrameMode(true);
 							</a>
 						</div>
 					<?endif?>
+          </div>
 				<?endif?>
-			</div>
+			
         </div>
       </div>
     </div>

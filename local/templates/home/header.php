@@ -200,26 +200,19 @@ use Bitrix\Main\Page\Asset;
 	false
 );?>
 <? else:?>
-    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(<?=SITE_TEMPLATE_PATH?>/images/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
-      <div class="container">
-        <div class="row align-items-center justify-content-center text-center">
-          <div class="col-md-10">
-            <h1 class="mb-2"><?$APPLICATION->ShowTitle()?></h1>
-            <?$APPLICATION->IncludeComponent(
-              "bitrix:breadcrumb", 
-              "breadcrump", 
-              array(
-                "PATH" => "",
-                "SITE_ID" => "s1",
-                "START_FROM" => "0",
-                "COMPONENT_TEMPLATE" => "breadcrump"
-              ),
-              false
-            );?>          
-            </div>
-        </div>
-      </div>
-    </div>
+
+  <?$APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb", 
+	"breadcrumb_home", 
+	array(
+		"PATH" => "",
+		"SITE_ID" => "s1",
+		"START_FROM" => "0",
+		"COMPONENT_TEMPLATE" => "breadcrumb_home"
+	),
+	false
+);?>          
+
 <?endif?>
 <? if($APPLICATION->GetCurPage(false) === '/obyavleniya/'):?>
   <div class="pt-5">
@@ -312,9 +305,7 @@ use Bitrix\Main\Page\Asset;
             <input type="submit" class="btn btn-primary btn-block form-control-same-height rounded-0" value="Search">
           </div>
           
-        </form>
-
-        
+        </form>    
       </div>
     </div>
 <?endif?>
