@@ -305,7 +305,9 @@ use Bitrix\Main\Page\Asset;
             <input type="submit" class="btn btn-primary btn-block form-control-same-height rounded-0" value="Search">
           </div>
           
-        </form>    
+        </form>
+
+        
       </div>
     </div>
 <?endif?>

@@ -1,6 +1,5 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Объявления");
 ?>
     
 <?$APPLICATION->IncludeComponent(
@@ -17,7 +16,7 @@ $APPLICATION->SetTitle("Объявления");
 		"BROWSER_TITLE" => "-",
 		"CACHE_FILTER" => "Y",
 		"CACHE_GROUPS" => "Y",
-		"CACHE_TIME" => "36000000",
+		"CACHE_TIME" => "3600",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
 		"COMPONENT_TEMPLATE" => "posts_feed",

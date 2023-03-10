@@ -19,13 +19,13 @@ $count_more_links = count($arResult["DISPLAY_PROPERTIES"]["MORE_LINKS"]["DISPLAY
 
 <div class="site-blocks-cover overlay" style="background-image: url(<?=$arResult["DETAIL_PICTURE"]["SRC"]?>);" data-aos="fade" data-stellar-background-ratio="0.5">
 	<div class="container">
-	<div class="row align-items-center justify-content-center text-center">
-		<div class="col-md-10">
-		<span class="d-inline-block text-white px-3 mb-3 property-offer-type rounded"><?=GetMessage("PROPERTY_DETAILS")?></span>
-		<h1 class="mb-2"><?=$arResult["NAME"]?></h1>
-		<p class="mb-5"><strong class="h2 text-success font-weight-bold">$<?=$arResult["DISPLAY_PROPERTIES"]["PRICE"]["VALUE"]?></strong></p>
-		</div>
-	</div>
+    <div class="row align-items-center justify-content-center text-center">
+      <div class="col-md-10">
+        <span class="d-inline-block text-white px-3 mb-3 property-offer-type rounded"><?=GetMessage("PROPERTY_DETAILS")?></span>
+        <h1 class="mb-2"><?=$arResult["NAME"]?></h1>
+        <p class="mb-5"><strong class="h2 text-success font-weight-bold">$<?=$arResult["DISPLAY_PROPERTIES"]["PRICE"]["VALUE"]?></strong></p>
+        </div>
+    </div>
 	</div>
 </div>
 <div class="site-section site-section-sm">
