@@ -26,21 +26,22 @@ if($arResult["OK_MESSAGE"] <> '')
 	<?=bitrix_sessid_post()?>
 		<div class="row form-group">
 			<div class="col-md-12 mb-3 mb-md-0">
-			<label class="font-weight-bold" for="fullname"><?=GetMessage("MFT_NAME")?></label>
-			<input type="text" id="fullname" class="form-control" value="<?=$arResult["AUTHOR_NAME"]?>" placeholder="<?=GetMessage("MFT_NAME")?>">
+			<label class="font-weight-bold"><?=GetMessage("MFT_NAME")?></label>
+			<input type="text" name="user_name" class="form-control" value="<?=$arResult["AUTHOR_NAME"]?>" placeholder="<?=GetMessage("MFT_NAME")?>">
 			</div>
 		</div>
 		<div class="row form-group">
 			<div class="col-md-12">
-			<label class="font-weight-bold" for="email"><?=GetMessage("MFT_EMAIL")?></label>
-			<input type="email" id="email" class="form-control" value="<?=$arResult["AUTHOR_EMAIL"]?>" placeholder="<?=GetMessage("MFT_EMAIL")?>">
+			<label class="font-weight-bold"><?=GetMessage("MFT_EMAIL")?></label>
+			<input type="email" name="user_email" class="form-control" value="<?=$arResult["AUTHOR_EMAIL"]?>" placeholder="<?=GetMessage("MFT_EMAIL")?>">
 			</div>
 		</div>
 
 		<div class="row form-group">
 			<div class="col-md-12">
 			<label class="font-weight-bold" for="message"><?=GetMessage("MFT_MESSAGE")?></label> 
-			<textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="<?=GetMessage("MFT_MESSAGE")?>"></textarea>
+			<textarea name="MESSAGE" class="form-control" rows="5" cols="40"><?=$arResult["MESSAGE"]?></textarea>
+			
 			</div>
 		</div>
 
