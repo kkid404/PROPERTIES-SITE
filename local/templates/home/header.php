@@ -70,6 +70,7 @@ use Bitrix\Main\Page\Asset;
                 )
               );?>   
             </p>
+            
           </div>
           <div class="col-6 col-md-6 text-right">
           <?$APPLICATION->IncludeComponent(
@@ -85,8 +86,20 @@ use Bitrix\Main\Page\Asset;
           </div>
         </div>
       </div>
-
     </div>
+    <div class="col-md-11 text-right">
+            <?
+              global $USER;
+              if ($USER->IsAuthorized()):
+              ?>
+                <span><?=$USER->GetFullName()?></span>
+                <span>|</span>
+                <a href="/?logout=yes&<?=bitrix_sessid_get()?>"><?=GetMessage("LOGOUT")?></a>
+              <?else:?>
+                <a href="/login/"><?=GetMessage("AUTH")?></a>
+              <?endif
+            ?>
+          </div>
     <div class="site-navbar">
       <div class="container py-1">
         <div class="row align-items-center">

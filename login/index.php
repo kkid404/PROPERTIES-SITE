@@ -9,9 +9,6 @@ if (is_string($_REQUEST["backurl"]) && mb_strpos($_REQUEST["backurl"], "/") === 
 
 $APPLICATION->SetTitle("Вход на сайт");
 ?><p>
-	Вы зарегистрированы и успешно авторизовались.
-</p>
-<p>
 	<a href="<?=SITE_DIR?>">Вернуться на главную страницу</a>
 </p>
  <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

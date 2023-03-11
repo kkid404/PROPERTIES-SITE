@@ -21,6 +21,7 @@ if($arResult["SHOW_SMS_FIELD"] == true)
 {
 	CJSCore::Init('phone_auth');
 }
+
 ?>
 
 <div class="col-md-12 col-lg-8 mb-5">        
@@ -99,6 +100,24 @@ ShowMessage($arParams["~AUTH_RESULT"]);
 				<input type="text" class="form-control" name="captcha_word" maxlength="50" value="" autocomplete="off" />
 			</div>
 	</div>
+	<?if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
+		<div class="row form-group">
+		<?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
+			<div class="col-md-12 mb-3 mb-md-0">
+				<label class="font-weight-bold"><?=$arUserField["EDIT_FORM_LABEL"]?>
+					<?if ($arUserField["MANDATORY"]=="Y"):?>
+						<span class="starrequired">*</span>
+					<?endif;?>
+				</label>
+				<div class="col-md-12 mb-3 mb-md-0">
+				<?$APPLICATION->IncludeComponent(
+					"bitrix:system.field.edit",
+					$arUserField["USER_TYPE"]["USER_TYPE_ID"],
+					array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField, "form_name" => "regform"), null, array("HIDE_ICONS"=>"Y"));?>			</div>
+				</div>
+			</div>
+		<?endforeach;?>
+	<?endif;?>
 	<?endif?>
 	<?$APPLICATION->IncludeComponent("bitrix:main.userconsent.request", "",
 		array(
